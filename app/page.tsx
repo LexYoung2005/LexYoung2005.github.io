@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 type Lang = "zh" | "en";
@@ -35,8 +36,10 @@ const content = {
       title: "我正在构建的工作。",
       desc:
         "这些项目集中体现了我目前的兴趣：用计算智能方法处理真实世界中的复杂工程问题。",
+      more: "查看详情",
       items: [
         {
+          slug: "compressor",
           title: "螺杆压缩机转子型线优化",
           subtitle: "面向高维工程设计的物理一致性学习优化",
           description:
@@ -44,6 +47,7 @@ const content = {
           tag: "优化 · 仿真 · 代理建模",
         },
         {
+          slug: "vision",
           title: "工业视觉测量",
           subtitle: "基于透视补偿与逆映射建模的尺寸恢复",
           description:
@@ -51,6 +55,7 @@ const content = {
           tag: "视觉 · 几何 · 测量",
         },
         {
+          slug: "rl",
           title: "自主系统强化学习",
           subtitle: "兼顾物理约束与鲁棒性的学习控制",
           description:
@@ -130,8 +135,10 @@ const content = {
       title: "What I am building now.",
       desc:
         "These projects reflect my current interest in solving real engineering problems with computational intelligence.",
+      more: "View details",
       items: [
         {
+          slug: "compressor",
           title: "Screw Compressor Rotor Optimization",
           subtitle:
             "Physics-aware learning for high-dimensional engineering design",
@@ -140,6 +147,7 @@ const content = {
           tag: "Optimization · Simulation · Surrogate Modeling",
         },
         {
+          slug: "vision",
           title: "Industrial Vision Measurement",
           subtitle:
             "Dimension recovery through perspective compensation and inverse modeling",
@@ -148,6 +156,7 @@ const content = {
           tag: "Vision · Geometry · Measurement",
         },
         {
+          slug: "rl",
           title: "Reinforcement Learning for Autonomous Systems",
           subtitle:
             "Learning-based control with physical consistency and robustness",
@@ -370,7 +379,7 @@ export default function Home() {
                 {t.hero.primary}
               </a>
               <a
-                href="mailto:z28120w@outlook.com"
+                href="mailto:your_email@example.com"
                 className="rounded-full border border-white/25 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur transition hover:bg-white/15"
               >
                 {t.hero.secondary}
@@ -452,27 +461,29 @@ export default function Home() {
 
           <div className="mt-14 grid gap-6">
             {t.projects.items.map((project) => (
-              <div
-                key={project.title}
-                className="group rounded-[2rem] border border-black/10 bg-[#f5f5f7] p-8 transition duration-300 hover:-translate-y-1 hover:shadow-2xl md:p-10"
-              >
-                <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:gap-12">
-                  <div>
-                    <p className="text-sm text-black/45">{project.tag}</p>
-                    <h3 className="mt-3 text-2xl font-semibold tracking-tight md:text-4xl">
-                      {project.title}
-                    </h3>
-                    <p className="mt-4 text-lg text-black/70">
-                      {project.subtitle}
-                    </p>
-                  </div>
-                  <div className="flex items-end">
-                    <p className="text-base leading-8 text-black/65">
-                      {project.description}
-                    </p>
+              <Link key={project.slug} href={`/projects/${project.slug}/zh`}>
+                <div className="group cursor-pointer rounded-[2rem] border border-black/10 bg-[#f5f5f7] p-8 transition duration-300 hover:-translate-y-1 hover:shadow-2xl md:p-10">
+                  <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:gap-12">
+                    <div>
+                      <p className="text-sm text-black/45">{project.tag}</p>
+                      <h3 className="mt-3 text-2xl font-semibold tracking-tight md:text-4xl">
+                        {project.title}
+                      </h3>
+                      <p className="mt-4 text-lg text-black/70">
+                        {project.subtitle}
+                      </p>
+                    </div>
+                    <div className="flex flex-col justify-between">
+                      <p className="text-base leading-8 text-black/65">
+                        {project.description}
+                      </p>
+                      <div className="mt-6 text-sm font-medium text-black/55 transition group-hover:text-black">
+                        {t.projects.more} →
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -514,7 +525,7 @@ export default function Home() {
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="mailto:z28120w@outlook.com"
+              href="mailto:your_email@example.com"
               className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:scale-[1.02]"
             >
               {t.contact.email}
