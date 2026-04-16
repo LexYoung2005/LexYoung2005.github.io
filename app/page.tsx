@@ -379,7 +379,7 @@ export default function Home() {
                 {t.hero.primary}
               </a>
               <a
-                href="mailto:your_email@example.com"
+                href="mailto:z28120w@outlook.com"
                 className="rounded-full border border-white/25 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur transition hover:bg-white/15"
               >
                 {t.hero.secondary}
@@ -525,7 +525,7 @@ export default function Home() {
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="mailto:your_email@example.com"
+              href="mailto:z28120w@outlook.com"
               className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:scale-[1.02]"
             >
               {t.contact.email}
